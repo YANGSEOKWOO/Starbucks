@@ -5,6 +5,7 @@ body{
   font-weight: 400;
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
+  height: 3000px;
 }
 img{
   display: block;
@@ -17,10 +18,67 @@ a{
   width: 1100px;
   margin: 0 auto;
 }
+.btn{
+  width:130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color : #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  /* 버튼을 span이나 a같은 곳에 적용해도 정상적으로 나올 수 있도록 */
+  transition: .4s;
+  /* 전환효과를 자연스럽게 하도록 */
+}
+
+.btn:hover{
+  background-color: #333;
+  color:#fff;
+}
+
+.btn.btn--reverse{
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover{
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--brown{
+  border-color:#592B18;
+  color:#592B18;
+}
+.btn.btn--brown:hover{
+  color: #fff;
+  background-color: #592b18;
+}
+.btn.btn--gold{
+  color:#fff;
+  border-color: #D9AA8A;
+}
+.btn.btn--white{
+  color:#fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover{
+  color:#333;
+  background-color: #fff;
+}
+
+
 /* HEADER */
 header{
+  width:100%;
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
+  position: fixed;
+  top:0;
+  z-index:9;
+  
 }
 
 header > .inner{
@@ -185,6 +243,179 @@ header .main-menu .item .item__contents .contents__texture h4{
 
 header .main-menu .item .item__contents .contents__texture p{
   color: #669900;
-  margin: 4px 0 14px;
+  margin: 4px 0 14px; 
+}
+
+header .badges{
+  position: absolute;
+  top:132px;
+  right:12px;
+}
+
+header .badges .badge{
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0,0,0, 0.15);
+  cursor: pointer;
+}
+
+/* VISUAL */
+
+.visual{
+  margin-top:120px;
+  background-image: url('../images/visual_bg.jpg');
+  background-position: center;
+  /* 정 가운데 하나만 넣겠다 */
+}
+/* 프로젝트의 모든 inner 클래스는
+width 1100px, margin 0 auto, position relative
+속성이 적용되어 있다. */
+.visual .inner{
+  height: 646px;
+  /* 높이값 추가 */
   
 }
+
+.visual .title{
+  /* inner에 position 있어서 부모요소를 기준으로 배치하겠다 */
+  position: absolute;
+  top : 88px;
+  left : -10px;
+}
+
+.visual .title .btn{
+  position: absolute;
+  top:259px;
+  left:173px;
+}
+
+.visual .cup1.image{
+  position: absolute;
+  bottom :0;
+  right : -47px;
+
+}
+.visual .cup1.text{
+  position: absolute;
+  top :38px;
+  right : 171px;
+
+}
+
+.visual .cup2.image{
+  position: absolute;
+  bottom :0;
+  right : 162px;
+}
+.visual .cup2.text{
+  position: absolute;
+  top :321px;
+  right : 416px;
+}
+.visual .spoon{
+  position: absolute;
+  bottom :0;
+  left : 275px;
+
+}
+
+.visual .fade-in{
+  opacity: 0;
+}
+
+/* NOTICE */
+.notice{
+
+}
+
+.notice .notice-line{
+  position: relative;
+}
+
+.notice .notice-line .bg-left{
+  position: absolute;
+  top:0;
+  left:0;
+  width:50%;
+  height: 100%;
+  background-color: #333;
+}
+
+.notice .notice-line .bg-right{
+  position: absolute;
+  top:0;
+  right:0;
+  width:50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner{
+  height: 62px;
+  display: flex;
+}
+
+.notice .notice-line .inner__left{
+  width:60%;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  /* 높이값을 설정해줘서 swiper container가 사라짐 -> 높이값 설정해주면 다시 생긴다. */
+  align-items: center;
+}
+.notice .notice-line .inner__left h2{
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .notice-line .inner__left .swiper-container{
+  background-color: orange;
+  /* 가로가 값이 없어 안보인다. 최대한 늘어나라고 설정 */
+  /* 세로는 display:flex를 할 때 높이값이 없다면 최대한 늘어나려고 하기 떄문에 기존 높이값과 똑같이 유지된다. */
+  /*align-items : 기본값 stretch 이기 때문에*/
+  height: 62px;
+  flex-grow:1; 
+}
+.notice .notice-line .inner__left .notice-line__more{
+  /* 아이콘이 마음에 안들어 화면을 설정하고 정 가운데로 맞췄다. */
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__left .notice-line__more .material-icons{
+  color:#fff;
+  font-size: 30px;
+}
+
+.notice .notice-line .inner__right{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  /* 오른쪽부분으로 밀어버리기 위함 */
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.notice .notice-line .inner__right h2{
+  font-size: 17px;
+  font-weight: 700;
+}
+.notice .notice-line .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  /* 아이콘을 수평가운데, 수직가운데로 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice .notice-line .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
+} 
